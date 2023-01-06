@@ -14,24 +14,27 @@ export class UsersRepository {
     });
   }
 
-  async findAll(): Promise<UserEntity[]> {
+  public async findAll(): Promise<UserEntity[]> {
     return this.prisma.user.findMany();
   }
 
-  async findOne(id: string): Promise<UserEntity> {
+  public async findOne(id: string): Promise<UserEntity> {
     return this.prisma.user.findUnique({
       where: { id },
     });
   }
 
-  async update(id: string, updateUserDto: UpdateUserDto): Promise<UserEntity> {
+  public async update(
+    id: string,
+    updateUserDto: UpdateUserDto,
+  ): Promise<UserEntity> {
     return this.prisma.user.update({
       where: { id },
       data: updateUserDto,
     });
   }
 
-  async remove(id: string): Promise<UserEntity> {
+  public async remove(id: string): Promise<UserEntity> {
     return this.prisma.user.delete({
       where: { id },
     });
