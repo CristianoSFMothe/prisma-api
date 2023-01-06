@@ -307,6 +307,14 @@ nest g res users
 npm install class-validator class-transformer
 ```
 
+## Tratamento de erros
+
+Criar um arquivo de `filter` para tratar os erros
+
+```bash
+nest g filter common/filters/http-exception --no-spec
+```
+
 
 
 
