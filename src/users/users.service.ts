@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { UsersRepository } from './repositories/users.repository';
+import { UnauthorizedError } from '../common/errors/types/UnauthorizedError';
 
 @Injectable()
 export class UsersService {
@@ -12,6 +13,7 @@ export class UsersService {
   }
 
   public async findAll() {
+    // throw new UnauthorizedError('Não autorizado');
     return this.repository.findAll();
   }
 
@@ -20,7 +22,7 @@ export class UsersService {
   }
 
   public async update(id: string, updateUserDto: UpdateUserDto) {
-    return this.repository.update(id, updateUserDto)
+    return this.repository.update(id, updateUserDto);
   }
 
   public async remove(id: string) {
